@@ -79,13 +79,10 @@ export default function Details() {
         console.log('JSONdata', JSONdata);
 
         const options = {
-            // The method is POST because we are sending data.
             method: 'PUT',
-            // Tell the server we're sending JSON.
             headers: {
             'Content-Type': 'application/json',
             },
-            // Body of the request is the JSON data we created above.
             body: JSONdata,
         }
     

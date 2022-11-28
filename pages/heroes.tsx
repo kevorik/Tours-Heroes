@@ -1,5 +1,3 @@
-import { useEffect, useState } from "react"
-import { isAnyArrayBuffer } from "util/types"
 import Link from "next/link"
 import styled from 'styled-components';
 import { MainLayout } from "../components/MainLayout";
@@ -48,22 +46,11 @@ type THeroes = {
 };
 
 export default function Heroes({heroes}: THeroes) {
-    // const [heroes, setHeroes] = useState([])
 
-    // useEffect(() => {
-    //     async function load() {
-    //     const response = await fetch( 'http://localhost:4000/heroes')
-    //     const json = await response.json()
-    //     setHeroes(json)
-    //     }
-
-    //     load()
-    // }, [])
         
     return (
         <MainLayout>
         <h1>My Heroes</h1>
-        {/* <pre>{JSON.stringify(heroes, null, 2)}</pre> */}
         <Ul>
             {heroes.map(hero => (
                 <div key = {hero.id}>

@@ -56,20 +56,9 @@ export default function Dashboard() {
                         <H2> {hero.name}</H2>
                         </Div>
                         </Link>
-                        {/* <Link href={{ pathname: '/details', query: { id: hero.id, name: hero.name } }}>{hero.name}</Link> */}
                 </div>
             ))}
         </Ul>
     </MainLayout>
     )
 }
-
-// Dashboard.getInitialProps = async () => {
-//     const response = await fetch('http://localhost:4000/heroes?limit=4')
-//     const heroes = await response.json()
-    
-
-//     return {
-//         heroes
-//     }
-// }
