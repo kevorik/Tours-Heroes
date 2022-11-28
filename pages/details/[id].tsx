@@ -3,6 +3,8 @@ import { MainLayout } from "../../components/MainLayout";
 import { Router, useRouter } from "next/router";
 import { IHero } from "../../models";
 import styled from "styled-components";
+import {Button, Space, Input} from 'antd'
+import { EnterOutlined, CheckCircleOutlined,UserOutlined} from '@ant-design/icons';
 
 const H1 = styled.h1`
     display: flex;
@@ -11,12 +13,13 @@ const H1 = styled.h1`
 
 const Div = styled.div`
     padding-left: 10px;
+    display: flex;
 `;
 
-const Input = styled.input`
-    font-size:30px;
-    width: 270px;
-`;
+// const Input = styled.input`
+//     font-size:30px;
+//     width: 270px;
+// `;
 
 const H2 = styled.h2`
     font-size: 28px;
@@ -28,21 +31,10 @@ const Span = styled.span`
 
 const H4 = styled.h4`
     display: flex;
-    width: 384px;
+    width: 400px;
     justify-content: space-between;
     height: 35px;
-    bac
 `;
-
-const Button = styled.button`
-    background-color: aqua;
-    border: none;
-    border-radius: 8px;
-    width: 110px;
-    cursor: pointer
-`; 
-
-
 
 
 
@@ -109,6 +101,7 @@ export default function Details() {
 
 
 
+
     return(
 
         <MainLayout>
@@ -121,16 +114,22 @@ export default function Details() {
                 <Span>name: </Span>  
                 <Div>
             <Input
-                placeholder="name"
+                size="large"
+                placeholder="Name"
+                prefix={<UserOutlined />}
                 value={name} 
                 onChange={handleUpdateHero}
             />
             </Div>
             </H1>
             <H4>
-            <Button onClick = {linkClickHandler}>Back Dashboard</Button>
-            <Button onClick={() => router.push('/heroes')}>Back Heroes</Button>
-            <Button onClick={save}>Save</Button>
+            <Space direction="vertical">
+            <Space wrap>
+            <Button type="primary" icon={<EnterOutlined />} onClick = {linkClickHandler}>Back Dashboard</Button>
+            <Button type="primary" icon={<EnterOutlined />} onClick={() => router.push('/heroes')}>Back Heroes</Button>
+            <Button type="primary" icon={<CheckCircleOutlined />} onClick={save}>Save</Button>
+            </Space>
+            </Space>
             </H4>
             </React.Fragment>
         </MainLayout>

@@ -2,18 +2,27 @@ import Link from "next/link";
 import { MainLayout } from "../components/MainLayout";
 import styled from 'styled-components';
 import { useEffect, useState } from "react";
+import { Button, Space } from 'antd';
 
 const Div = styled.div`
     display: flex;
     flex-direction:row;
 `;
 
-const H2 = styled.h2`
-background-color: aqua;
-padding: 30px;
-color: black;
-font-size: 20px;
-`;
+// const H2 = styled.h2`
+// background-color: aqua;
+// padding: 30px;
+// color: black;
+// font-size: 20px;
+// `;
+
+// const Button = styled.button`
+// background: ${props => props.primary ? "palevioletred" : "white"};
+// background-color: aqua;
+// padding: 30px;
+// color: black;
+// font-size: 20px;
+// `;
 
 const Ul = styled.ul`
     display: flex;
@@ -53,7 +62,8 @@ export default function Dashboard() {
                 <div key = {hero.id}>
                     <Link style={{textDecoration: 'none'}} href={`/details/${hero.id}`}>
                         <Div>
-                        <H2> {hero.name}</H2>
+
+                        <Button type="primary" style={{padding: '40px', display: 'flex', justifyContent: 'center', alignItems: 'center', fontSize: '25px',}} > {hero.name}</Button>
                         </Div>
                         </Link>
                 </div>

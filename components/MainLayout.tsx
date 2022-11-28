@@ -1,5 +1,7 @@
 import Link from "next/link";
 import styled from "styled-components";
+import {Button, Space} from 'antd'
+
 
 
 const Title = styled.h1`
@@ -10,19 +12,10 @@ const Title = styled.h1`
 const Nav = styled.div`
     display: flex;
     flex-direction: row;
+    width: 190px;
+    justify-content: space-between;
 `;
 
-const P = styled.div`
-    margin-left: 15px;
-    border: 1px solid gray;
-    background-color: blue;
-    border-readius: 3px;
-    width: 110px;
-    height: 30px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-`;
 
 const Span = styled.span`
     color: white;
@@ -35,8 +28,16 @@ export function MainLayout ({children} : any) {
         <>
         <Title>Tour of Heroes</Title>
             <Nav>
-                <P><Link style={{textDecoration: 'none'}} href={'/dashboard'}><Span>Dashboard</Span></Link></P>
-                <P><Link style={{textDecoration: 'none'}} href={'/heroes'}><Span>Heroes</Span></Link></P>
+                <Link style={{textDecoration: 'none'}} href={'/dashboard'}>
+                    <Space wrap>
+                    <Button>Dashboard</Button>
+                    </Space>
+                    </Link>
+                <Link style={{textDecoration: 'none'}} href={'/heroes'}>
+                    <Space wrap>
+                    <Button>Heroes</Button>
+                    </Space>
+                    </Link>
             </Nav>
             <main>
                 {children}
