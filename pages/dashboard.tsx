@@ -51,7 +51,7 @@ export default function Dashboard() {
         <Ul>
             {heroes.map(hero => (
                 <div key = {hero.id}>
-                    <Link href={`/details/${hero.id}`}>
+                    <Link style={{textDecoration: 'none'}} href={`/details/${hero.id}`}>
                         <Div>
                         <H2> {hero.name}</H2>
                         </Div>

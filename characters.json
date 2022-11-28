@@ -1,20 +1,20 @@
 {
   "heroes": [
     {
-      "name": "qweqwe",
+      "name": "Narco",
       "id": 11
     },
     {
-      "name": "lasasd",
+      "name": "Bombasto",
       "id": 12
     },
     {
-      "name": "Vladivslav",
+      "name": "Celeritas",
       "id": 13
     },
     {
-      "id": 14,
-      "name": "Magneta"
+      "name": "Magneta",
+      "id": 14
     },
     {
       "id": 15,

@@ -35,8 +35,8 @@ export function MainLayout ({children} : any) {
         <>
         <Title>Tour of Heroes</Title>
             <Nav>
-                <P><Link href={'/dashboard'}><Span>Dashboard</Span></Link></P>
-                <P><Link href={'/heroes'}><Span>Heroes</Span></Link></P>
+                <P><Link style={{textDecoration: 'none'}} href={'/dashboard'}><Span>Dashboard</Span></Link></P>
+                <P><Link style={{textDecoration: 'none'}} href={'/heroes'}><Span>Heroes</Span></Link></P>
             </Nav>
             <main>
                 {children}

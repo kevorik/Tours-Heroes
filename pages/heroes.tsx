@@ -54,7 +54,7 @@ export default function Heroes({heroes}: THeroes) {
         <Ul>
             {heroes.map(hero => (
                 <div key = {hero.id}>
-                    <Link href={`/details/${hero.id}`}>
+                    <Link style={{textDecoration: 'none'}} href={`/details/${hero.id}`}>
                         <Div>
                         <Span>
                         <Id>{hero.id}</Id>
