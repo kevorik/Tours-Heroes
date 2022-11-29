@@ -56,17 +56,22 @@ export default function Details() {
     const [id, setId] = useState(hero.id);
     const [name, setName] = useState(hero.name);
     const [heroObj, setHeroObj] = useState<IHero | null>(null);
-   
-    async function load() {
-        const response = await fetch(`https://vercel-pink-nu.vercel.app/heroes/${router.query.id}`)
-        const hero: any = await response.json()
 
-        setName(hero.name)
+    async function load() {
+
+        if(router && router.query && router.query.id){
+            // const response = await fetch(`https://vercel-pink-nu.vercel.app/heroes/${router.query.id}`)
+            const response = await fetch(`http://localhost:4000/heroes/${router.query.id}`)
+            const hero: any = await response.json()
+            setName(hero.name)
+            setId(router.query.id)
+        }
+
     }
 
     useEffect(() => {
         load()
-    }, [Boolean(router)])
+    }, [Boolean(router.query.id)])
 
     
 
@@ -85,9 +90,10 @@ export default function Details() {
             body: JSONdata,
         }
     
-        const response = await fetch(`https://vercel-pink-nu.vercel.app/heroes/${router.query.id}`, options)
-    
+        // const response = await fetch(`https://vercel-pink-nu.vercel.app/heroes/${router.query.id}`, options)    
+        const response = await fetch(`http://localhost:4000/heroes/${router.query.id}`, options)
         const result = await response.json()
+        console.log('res',response);
     }
 
     const handleUpdateHero = (e: any) => {
