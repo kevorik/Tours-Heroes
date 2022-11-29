@@ -28,7 +28,7 @@ const Span = styled.span`
 
 export function MainLayout ({children} : any) {
     return(
-        <div>
+        <>
         <Title>Tour of Heroes</Title>
             <Nav>
                 <Link style={{textDecoration: 'none'}} href={'/dashboard'}>
@@ -45,6 +45,6 @@ export function MainLayout ({children} : any) {
             <main>
                 {children}
             </main>
-        </div>
+        </>
     )
 }
