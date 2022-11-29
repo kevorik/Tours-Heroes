@@ -6,9 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
-    "serve": "concurrently \"npm run dev\" \"npm run mock\"",
-    "mock": "json-server -w characters.json -p 4000 -d 450"
+    "lint": "next lint"
+    
   },
   "dependencies": {
     "@types/node": "18.11.9",
