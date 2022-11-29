@@ -65,6 +65,8 @@ export default function Dashboard() {
         load()
     }, [])
 
+
+
     return(
         <MainLayout>
             <H1>Top Heroes</H1>
