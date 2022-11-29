@@ -58,7 +58,7 @@ export default function Details() {
     const [heroObj, setHeroObj] = useState<IHero | null>(null);
    
     async function load() {
-        const response = await fetch(`http://localhost:4000/heroes/${router.query.id}`)
+        const response = await fetch(`https://vercel-pink-nu.vercel.app/heroes/${router.query.id}`)
         const hero: any = await response.json()
 
         setName(hero.name)
