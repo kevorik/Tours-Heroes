@@ -9,6 +9,9 @@ import { EnterOutlined, CheckCircleOutlined,UserOutlined} from '@ant-design/icon
 const H1 = styled.h1`
     display: flex;
     flex-direction:row;
+    justify-content: inherit;
+    margin-left:823px;
+    margin-right:700px;
 `;
 
 const Div = styled.div`
@@ -23,10 +26,15 @@ const Div = styled.div`
 
 const H2 = styled.h2`
     font-size: 28px;
+    display: flex;
+    justify-content: inherit;
+    margin-left:823px;
+    margin-right:700px;
 `;
 
 const Span = styled.span`
     font-size: 28px;
+    
 `;
 
 const H4 = styled.h4`
@@ -34,6 +42,9 @@ const H4 = styled.h4`
     width: 400px;
     justify-content: space-between;
     height: 35px;
+    display: flex;
+    margin-left:823px;
+    
 `;
 
 
@@ -66,10 +77,6 @@ export default function Details() {
     async function save() {
         const JSONdata = JSON.stringify(heroObj)
 
-        console.log('body', heroObj);
-
-        console.log('JSONdata', JSONdata);
-
         const options = {
             method: 'PUT',
             headers: {
@@ -81,10 +88,6 @@ export default function Details() {
         const response = await fetch(`http://localhost:4000/heroes/${router.query.id}`, options)
     
         const result = await response.json()
-
-        console.log('res', response);
-
-        console.log('result', result);
     }
 
     const handleUpdateHero = (e: any) => {
@@ -107,7 +110,7 @@ export default function Details() {
         <MainLayout>
             <React.Fragment>
             
-            <h1>{name} details!</h1>
+            <h1 style={{display: 'flex', justifyContent: 'inherit',marginLeft: '823px',marginRight:'700px'}}>{name} details!</h1>
             <H2>id: {id}</H2>
 
             <H1>

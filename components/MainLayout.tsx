@@ -4,16 +4,19 @@ import {Button, Space} from 'antd'
 
 
 
+
 const Title = styled.h1`
     color: red;
-    font-size: 25px;
+    display: flex;
+    justify-content: center;
 `;
 
 const Nav = styled.div`
     display: flex;
     flex-direction: row;
-    width: 190px;
     justify-content: space-between;
+    margin-left: 820px;
+    margin-right: 820px;
 `;
 
 

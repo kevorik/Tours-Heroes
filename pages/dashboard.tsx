@@ -7,6 +7,7 @@ import { Button, Space } from 'antd';
 const Div = styled.div`
     display: flex;
     flex-direction:row;
+    justify-content: center;
 `;
 
 // const H2 = styled.h2`
@@ -28,13 +29,24 @@ const Ul = styled.ul`
     display: flex;
     padding-left: 8px;
     justify-content: space-evenly;
-    padding-right: 1060px;
+    margin-left: 500px;
+    margin-right: 500px;
 `;
 
 const H1 = styled.h1`
-    padding-left: 300px;
-    color: firebrick;
+    color: #F5DEB3;
+    display: flex;
+    justify-content: center;
 `;
+
+const Nav = styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-left: 820px;
+    margin-right: 820px;
+`;
+
 
 
 type THeroes = {
@@ -47,7 +59,6 @@ export default function Dashboard() {
         useEffect(() => {
         async function load() {
         const response = await fetch('http://localhost:4000/heroes?limit=4')
-        console.log(response);
         const json: any[] = await response.json()
         setHeroes(json.slice(0,4))
         }
@@ -55,20 +66,20 @@ export default function Dashboard() {
     }, [])
 
     return(
-    <MainLayout>
-        <H1>Top Heroes</H1>
-        <Ul>
-            {heroes.map(hero => (
-                <div key = {hero.id}>
-                    <Link style={{textDecoration: 'none'}} href={`/details/${hero.id}`}>
-                        <Div>
-
-                        <Button type="primary" style={{padding: '40px', display: 'flex', justifyContent: 'center', alignItems: 'center', fontSize: '25px',}} > {hero.name}</Button>
-                        </Div>
-                        </Link>
-                </div>
-            ))}
-        </Ul>
-    </MainLayout>
-    )
+        <MainLayout>
+            <H1>Top Heroes</H1>
+            <Ul>
+                {heroes.map(hero => (
+                    <div key = {hero.id}>
+                        <Link style={{textDecoration: 'none'}} href={`/details/${hero.id}`}>
+                            <Div>
+    
+                            <Button type="primary" style={{padding: '40px', display: 'flex', justifyContent: 'center', alignItems: 'center', fontSize: '25px',}} > {hero.name}</Button>
+                            </Div>
+                            </Link>
+                    </div>
+                ))}
+            </Ul>
+        </MainLayout>
+        )
 }

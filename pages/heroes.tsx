@@ -4,7 +4,7 @@ import { MainLayout } from "../components/MainLayout";
 
 const Div = styled.div`
     display:flex;
-    
+    justify-content: center;
 `;
 const Name = styled.div`
     padding-left: 8px;
@@ -37,7 +37,6 @@ const Id = styled.div`
 
 const Ul = styled.ul`
     padding-left: 10px;
-    width: 156px;
 `;
 
 
@@ -50,7 +49,7 @@ export default function Heroes({heroes}: THeroes) {
         
     return (
         <MainLayout>
-        <h1>My Heroes</h1>
+        <h1 style={{display: 'flex',justifyContent: 'center', color: 'aqua'}}>My Heroes</h1>
         <Ul>
             {heroes.map(hero => (
                 <div key = {hero.id}>
