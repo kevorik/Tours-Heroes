@@ -85,7 +85,7 @@ export default function Details() {
             body: JSONdata,
         }
     
-        const response = await fetch(`http://localhost:4000/heroes/${router.query.id}`, options)
+        const response = await fetch(`https://vercel-pink-nu.vercel.app/heroes/${router.query.id}`, options)
     
         const result = await response.json()
     }
