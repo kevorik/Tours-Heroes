@@ -33,12 +33,12 @@ export function MainLayout ({children} : any) {
             <Nav>
                 <Link style={{textDecoration: 'none'}} href={'/dashboard'}>
                     <Space wrap>
-                    <Button>Dashboard</Button>
+                    <Button style={{display:'flex'}}>Dashboard</Button>
                     </Space>
                     </Link>
                 <Link style={{textDecoration: 'none'}} href={'/heroes'}>
                     <Space wrap>
-                    <Button>Heroes</Button>
+                    <Button style={{display:'flex'}}>Heroes</Button>
                     </Space>
                     </Link>
             </Nav>
