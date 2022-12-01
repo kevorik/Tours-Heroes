@@ -3,6 +3,7 @@ import { MainLayout } from "../components/MainLayout";
 import styled from 'styled-components';
 import { useEffect, useState } from "react";
 import { Button, Space } from 'antd';
+import { loadComponents } from "next/dist/server/load-components";
 
 const Div = styled.div`
     display: flex;
@@ -34,7 +35,7 @@ const Ul = styled.ul`
 `;
 
 const H1 = styled.h1`
-    color: #F5DEB3;
+    color: red;
     display: flex;
     justify-content: center;
 `;
@@ -58,7 +59,7 @@ export default function Dashboard() {
     const [heroes, setHeroes] = useState<any[]>([])
         useEffect(() => {
         async function load() {
-        const response = await fetch('https://vercel-pink-nu.vercel.app/heroes')
+        const response = await fetch('http://localhost:4000/heroes')
         const json: any[] = await response.json()
         setHeroes(json.slice(0,4))
         }

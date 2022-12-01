@@ -46,7 +46,6 @@ type THeroes = {
 
 export default function Heroes({heroes}: THeroes) {
 
-        
     return (
         <MainLayout>
         <h1 style={{display: 'flex',justifyContent: 'center', color: 'aqua'}}>My Heroes</h1>
@@ -58,7 +57,7 @@ export default function Heroes({heroes}: THeroes) {
                         <Span>
                         <Id>{hero.id}</Id>
                         </Span>
-                        <Name> {hero.name}</Name>
+                        <Name> {hero.name}</Name>                        
                         </Div>
                         </Link>
                         
@@ -71,7 +70,7 @@ export default function Heroes({heroes}: THeroes) {
 }
 
 Heroes.getInitialProps = async () => {
-    const response = await fetch( 'https://vercel-pink-nu.vercel.app/heroes')
+    const response = await fetch( 'http://localhost:4000/heroes')
     const heroes = await response.json()
 
     return {
