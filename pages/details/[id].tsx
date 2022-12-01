@@ -60,7 +60,7 @@ export default function Details() {
     async function load() {
         if(router && router.query && router.query.id){
             // const response = await fetch(`https://vercel-pink-nu.vercel.app/heroes/${router.query.id}`)
-            const response = await fetch(`https://vercel-pink-nu.vercel.app/${router.query.id}`)
+            const response = await fetch(`https://vercel-pink-nu.vercel.app/heroes/${router.query.id}`)
             const hero: any = await response.json()
             setName(hero.name)
             setId(router.query.id)
@@ -89,7 +89,7 @@ export default function Details() {
         }
     
         // const response = await fetch(`https://vercel-pink-nu.vercel.app/heroes/${router.query.id}`, options)    
-        const response = await fetch(`https://vercel-pink-nu.vercel.app/${router.query.id}`, options)
+        const response = await fetch(`https://vercel-pink-nu.vercel.app/heroes/${router.query.id}`, options)
         const result = await response.json()
     }
 
