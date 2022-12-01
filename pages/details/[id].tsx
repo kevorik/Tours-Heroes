@@ -84,11 +84,10 @@ export default function Details() {
             method: 'PUT',
             headers: {
             'Content-Type': 'application/json',
+            'Accept' : 'application/json'
             },
             body: JSONdata,
-        }
-    
-        // const response = await fetch(`https://vercel-pink-nu.vercel.app/heroes/${router.query.id}`, options)    
+        }    
         const response = await fetch(`https://vercel-pink-nu.vercel.app/heroes/${router.query.id}`, options)
         const result = await response.json()
     }
