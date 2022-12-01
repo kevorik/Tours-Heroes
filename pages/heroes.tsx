@@ -1,4 +1,5 @@
 import Link from "next/link"
+import { useEffect, useState } from "react";
 import styled from 'styled-components';
 import { MainLayout } from "../components/MainLayout";
 
@@ -44,7 +45,19 @@ type THeroes = {
     heroes: { "id": number, "name": string }[];
 };
 
-export default function Heroes({heroes}: THeroes) {
+export default function Heroes() {
+    const [heroes, setHeroes] = useState<any[]>([])
+        useEffect(() => {
+        async function load() {
+        // const response = await fetch('https://vercel-pink-nu.vercel.app/heroes')
+        const response = await fetch(`${process.env.API_URL}/heroes`)
+
+        const json: any[] = await response.json()
+        setHeroes(json)
+        }
+        load()
+    }, [])
+
 
     return (
         <MainLayout>
@@ -69,11 +82,11 @@ export default function Heroes({heroes}: THeroes) {
     )
 }
 
-Heroes.getInitialProps = async () => {
-    const response = await fetch( `${process.env.API_URL}/heroes`)
-    const heroes = await response.json()
+// Heroes.getInitialProps = async () => {
+//     const response = await fetch( `${process.env.API_URL}/heroes`)
+//     const heroes = await response.json()
 
-    return {
-        heroes
-    }
-}
+//     return {
+//         heroes
+//     }
+// }
