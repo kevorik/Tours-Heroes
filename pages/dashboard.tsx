@@ -59,7 +59,7 @@ export default function Dashboard() {
     const [heroes, setHeroes] = useState<any[]>([])
         useEffect(() => {
         async function load() {
-        const response = await fetch('http://localhost:4000/heroes')
+        const response = await fetch('https://vercel-pink-nu.vercel.app/heroes')
         const json: any[] = await response.json()
         setHeroes(json.slice(0,4))
         }
