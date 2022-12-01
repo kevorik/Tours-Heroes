@@ -70,7 +70,7 @@ export default function Heroes({heroes}: THeroes) {
 }
 
 Heroes.getInitialProps = async () => {
-    const response = await fetch( 'https://vercel-pink-nu.vercel.app/heroes')
+    const response = await fetch( `${process.env.API_URL}/heroes`)
     const heroes = await response.json()
 
     return {

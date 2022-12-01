@@ -57,10 +57,17 @@ export default function Details() {
     const [name, setName] = useState(hero.name);
     const [heroObj, setHeroObj] = useState<IHero | null>(null);
 
+    console.log('process.env.API_URL', process.env.API_URL);
+
+
+
     async function load() {
         if(router && router.query && router.query.id){
-            // const response = await fetch(`https://vercel-pink-nu.vercel.app/heroes/${router.query.id}`)
-            const response = await fetch(`https://vercel-pink-nu.vercel.app/heroes/${router.query.id}`)
+            // const response = await fetch(`${process.env.API_URL}/heroes/${router.query.id}`)
+            const response = await fetch(`${process.env.API_URL}/heroes/${router.query.id}`)
+
+            // const response = await fetch(`${baseUrl}/heroes/${router.query.id}`)
+
             const hero: any = await response.json()
             setName(hero.name)
             setId(router.query.id)
@@ -84,12 +91,17 @@ export default function Details() {
             method: 'PUT',
             headers: {
             'Content-Type': 'application/json',
-            'Accept' : 'application/json'
+            'Accept': 'application/json'
             },
             body: JSONdata,
         }    
-        const response = await fetch(`https://vercel-pink-nu.vercel.app/heroes/${router.query.id}`, options)
+        // const response = await fetch(`https://vercel-pink-nu.vercel.app/heroes/${router.query.id}`, options)
+        const response = await fetch(`${process.env.API_URL}/heroes/${router.query.id}`, options)
+
+
+        // const response = await fetch(`${baseUrl}/heroes/${router.query.id}`, options)
         const result = await response.json()
+        
     }
 
     const handleUpdateHero = (e: any) => {
