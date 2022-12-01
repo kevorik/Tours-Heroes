@@ -37,7 +37,9 @@ const Id = styled.div`
 `;
 
 const Ul = styled.ul`
-    padding-left: 10px;
+    padding-left: 0px;
+    margin-left: 835px;
+    margin-right: 840px;
 `;
 
 
