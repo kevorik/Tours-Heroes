@@ -2,44 +2,8 @@ import React, { useEffect,    useState } from "react";
 import { MainLayout } from "../../components/MainLayout";
 import { Router, useRouter } from "next/router";
 import { IHero } from "../../models";
-import styled from "styled-components";
 import {Button, Space, Input} from 'antd'
 import { EnterOutlined, CheckCircleOutlined,UserOutlined} from '@ant-design/icons';
-
-const H1 = styled.h1`
-    display: flex;
-    flex-direction:row;
-    justify-content: inherit;
-`;
-
-const Div = styled.div`
-    padding-left: 10px;
-    display: flex;
-`;
-
-// const Input = styled.input`
-//     font-size:30px;
-//     width: 270px;
-// `;
-
-const H2 = styled.h2`
-    font-size: 28px;
-    display: flex;
-    justify-content: inherit;
-`;
-
-const Span = styled.span`
-    font-size: 28px;
-    
-`;
-
-const H4 = styled.h4`
-    display: flex;
-    justify-content: space-between;
-    height: 35px;
-`;
-
-
 
 export default function Details() {
 
@@ -113,12 +77,12 @@ export default function Details() {
         <MainLayout>
             <React.Fragment>
             <div style={{display: 'flex', justifyContent: 'center', flexDirection: 'column'}}>
-            <h1 style={{display: 'flex', justifyContent: 'inherit'}}>{name} details!</h1>
-            <H2 style={{fontSize: '28px',display: 'flex',justifyContent: 'inherit',marginRight: '130px'}}>id: {id}</H2>
+            <h1 style={{display: 'flex', justifyContent: 'center'}}>{name} details!</h1>
+            <h2 style={{fontSize: '28px',display: 'flex',justifyContent: 'inherit',marginRight: '130px'}}>id: {id}</h2>
 
-            <H1 style={{display: 'flex',flexDirection: 'row',justifyContent: 'center',marginLeft: '130px'}}>
-                <Span style={{fontSize: '28px'}}>name: </Span>  
-                <Div style={{paddingLeft: '10px',display: 'flex'}}>
+            <h1 style={{display: 'flex',flexDirection: 'row',justifyContent: 'center',marginLeft: '130px'}}>
+                <span style={{fontSize: '28px'}}>name: </span>  
+                <div style={{paddingLeft: '10px',display: 'flex'}}>
             <Input style = {{width: '250px'}}
                 size="large"
                 placeholder="Name"
@@ -126,9 +90,9 @@ export default function Details() {
                 value={name} 
                 onChange={handleUpdateHero}
             />
-            </Div>
-            </H1>
-            <H4 style={{display: 'flex',justifyContent: 'center',height: '35px',marginLeft: '150px'}}>
+            </div>
+            </h1>
+            <h4 style={{display: 'flex',justifyContent: 'center',height: '35px',marginLeft: '150px'}}>
             <Space direction="vertical">
             <Space wrap>
             <Button type="primary" icon={<EnterOutlined />} onClick = {linkClickHandler}>Back Dashboard</Button>
@@ -136,7 +100,7 @@ export default function Details() {
             <Button type="primary" icon={<CheckCircleOutlined />} onClick={save}>Save</Button>
             </Space>
             </Space>
-            </H4>
+            </h4>
             </div>
             </React.Fragment>
         </MainLayout>

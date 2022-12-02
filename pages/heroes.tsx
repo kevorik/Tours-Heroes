@@ -1,44 +1,7 @@
 import Link from "next/link"
 import { useEffect, useState } from "react";
-import styled from 'styled-components';
 import { MainLayout } from "../components/MainLayout";
 
-const Div = styled.div`
-    display:flex;
-    justify-content: center;
-`;
-const Name = styled.div`
-    padding-left: 8px;
-    display: flex;
-    align-items: center;
-    margin-top: 7px;
-    border: 1px solid gray;
-    padding: 5px 40px;
-    border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px;
-    padding-left: 10px;
-    background-color: lightgrey;
-    color: black;
-    width: 70px;
-`;
-
-
-const Span = styled.span`
-    border: 1px solid grey;
-    background-color: #62639B;
-    color: white;
-    margin-top: 7px;
-    border-top-left-radius: 10px;
-    border-bottom-left-radius: 10px;
-`;
-
-const Id = styled.div`
-    padding: 5px 5px;
-`;
-
-const Ul = styled.ul`
-    
-`;
 
 
 type THeroes = {
@@ -62,17 +25,20 @@ export default function Heroes() {
     return (
         <MainLayout>
         <h1 style={{display: 'flex',justifyContent: 'center', color: 'aqua'}}>My Heroes</h1>
-        <Ul style={{marginRight: '25px'}}>
-            <div style={{width: '153px'}}>
+        <ul style={{marginRight: '25px', display: 'flex', justifyContent: 'center'}}>
+            <div style={{width: '220px'}}>
             {heroes.map(hero => (
                 <div key = {hero.id}>
                     <Link style={{textDecoration: 'none'}} href={`/details/${hero.id}`}>
-                        <Div>
-                        <Span>
-                        <Id>{hero.id}</Id>
-                        </Span>
-                        <Name> {hero.name}</Name>                        
-                        </Div>
+                        <div style={{display:'flex',justifyContent: 'center'}}>
+                        <span style={{border: '1px solid grey',backgroundColor: '#62639B',color: 'white',marginTop: '7px',
+                        borderTopLeftRadius: '10px',borderBottomLeftRadius: '10px'}}>
+                        <div style={{padding: '5px 5px'}}>{hero.id}</div>
+                        </span>
+                        <div style= {{display: 'flex',alignItems: 'center',marginTop: '7px',border: '1px solid gray',
+                        paddingLeft: '20px',borderTopRightRadius: '10px',borderBottomRightRadius: '10px',backgroundColor: 'lightgrey',
+                        color: 'black',width: '180px'}}> {hero.name}</div>
+                        </div>
                         </Link>
                         
                         
@@ -80,7 +46,7 @@ export default function Heroes() {
 
             ))}
             </div>
-        </Ul>
+        </ul>
         </MainLayout>
     )
 }

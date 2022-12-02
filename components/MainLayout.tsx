@@ -1,35 +1,12 @@
 import Link from "next/link";
-import styled from "styled-components";
 import {Button, Space} from 'antd'
-
-
-
-
-const Title = styled.h1`
-    color: red;
-    display: flex;
-    justify-content: center;
-`;
-
-const Nav = styled.div`
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-
-`;
-
-
-const Span = styled.span`
-    color: white;
-`;
-
 
 
 export function MainLayout ({children} : any) {
     return(
         <>
-        <Title style={{color: 'red',display: 'flex', justifyContent: 'center'}}>Tour of Heroes</Title>
-            <Nav style={{display: 'flex',flexDirection: 'row',justifyContent: 'center'}}>
+        <h1 style={{color: 'red',display: 'flex', justifyContent: 'center'}}>Tour of Heroes</h1>
+            <nav style={{display: 'flex',flexDirection: 'row',justifyContent: 'center'}}>
                 <Link style={{textDecoration: 'none'}} href={'/dashboard'}>
                     <Space wrap>
                     <Button style={{display:'flex'}}>Dashboard</Button>
@@ -40,7 +17,7 @@ export function MainLayout ({children} : any) {
                     <Button style={{display:'flex', marginLeft: '20px'}}>Heroes</Button>
                     </Space>
                     </Link>
-            </Nav>
+            </nav>
             <main>
                 {children}
             </main>
