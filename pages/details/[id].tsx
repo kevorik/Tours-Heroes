@@ -10,8 +10,6 @@ const H1 = styled.h1`
     display: flex;
     flex-direction:row;
     justify-content: inherit;
-    margin-left:823px;
-    margin-right:700px;
 `;
 
 const Div = styled.div`
@@ -28,8 +26,6 @@ const H2 = styled.h2`
     font-size: 28px;
     display: flex;
     justify-content: inherit;
-    margin-left:823px;
-    margin-right:700px;
 `;
 
 const Span = styled.span`
@@ -39,11 +35,8 @@ const Span = styled.span`
 
 const H4 = styled.h4`
     display: flex;
-    width: 400px;
     justify-content: space-between;
     height: 35px;
-    margin-left:823px;
-    
 `;
 
 
@@ -119,14 +112,14 @@ export default function Details() {
 
         <MainLayout>
             <React.Fragment>
-            
-            <h1 style={{display: 'flex', justifyContent: 'inherit',marginLeft: '823px',marginRight:'700px'}}>{name} details!</h1>
-            <H2 style={{fontSize: '28px',display: 'flex',justifyContent: 'inherit',marginLeft: '823px',marginRight: '700px'}}>id: {id}</H2>
+            <div style={{display: 'flex', justifyContent: 'center', flexDirection: 'column'}}>
+            <h1 style={{display: 'flex', justifyContent: 'inherit'}}>{name} details!</h1>
+            <H2 style={{fontSize: '28px',display: 'flex',justifyContent: 'inherit',marginRight: '130px'}}>id: {id}</H2>
 
-            <H1 style={{display: 'flex',flexDirection: 'row',justifyContent: 'inherit',marginLeft: '823px',marginRight: '700px'}}>
+            <H1 style={{display: 'flex',flexDirection: 'row',justifyContent: 'center',marginLeft: '130px'}}>
                 <Span style={{fontSize: '28px'}}>name: </Span>  
                 <Div style={{paddingLeft: '10px',display: 'flex'}}>
-            <Input
+            <Input style = {{width: '250px'}}
                 size="large"
                 placeholder="Name"
                 prefix={<UserOutlined />}
@@ -135,7 +128,7 @@ export default function Details() {
             />
             </Div>
             </H1>
-            <H4 style={{display: 'flex',width: '400px',justifyContent: 'space-between',height: '35px',marginLeft: '823px'}}>
+            <H4 style={{display: 'flex',justifyContent: 'center',height: '35px',marginLeft: '150px'}}>
             <Space direction="vertical">
             <Space wrap>
             <Button type="primary" icon={<EnterOutlined />} onClick = {linkClickHandler}>Back Dashboard</Button>
@@ -144,6 +137,7 @@ export default function Details() {
             </Space>
             </Space>
             </H4>
+            </div>
             </React.Fragment>
         </MainLayout>
     )

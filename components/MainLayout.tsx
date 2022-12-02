@@ -14,9 +14,8 @@ const Title = styled.h1`
 const Nav = styled.div`
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    margin-left: 820px;
-    margin-right: 820px;
+    justify-content: center;
+
 `;
 
 
@@ -30,7 +29,7 @@ export function MainLayout ({children} : any) {
     return(
         <>
         <Title style={{color: 'red',display: 'flex', justifyContent: 'center'}}>Tour of Heroes</Title>
-            <Nav style={{display: 'flex',flexDirection: 'row',justifyContent: 'space-between',marginLeft: '820px',marginRight: '820px'}}>
+            <Nav style={{display: 'flex',flexDirection: 'row',justifyContent: 'center'}}>
                 <Link style={{textDecoration: 'none'}} href={'/dashboard'}>
                     <Space wrap>
                     <Button style={{display:'flex'}}>Dashboard</Button>
@@ -38,7 +37,7 @@ export function MainLayout ({children} : any) {
                     </Link>
                 <Link style={{textDecoration: 'none'}} href={'/heroes'}>
                     <Space wrap>
-                    <Button style={{display:'flex'}}>Heroes</Button>
+                    <Button style={{display:'flex', marginLeft: '20px'}}>Heroes</Button>
                     </Space>
                     </Link>
             </Nav>

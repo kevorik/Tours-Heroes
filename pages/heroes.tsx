@@ -37,9 +37,7 @@ const Id = styled.div`
 `;
 
 const Ul = styled.ul`
-    padding-left: 0px;
-    margin-left: 835px;
-    margin-right: 840px;
+    
 `;
 
 
@@ -64,7 +62,8 @@ export default function Heroes() {
     return (
         <MainLayout>
         <h1 style={{display: 'flex',justifyContent: 'center', color: 'aqua'}}>My Heroes</h1>
-        <Ul style={{paddingLeft: '0px',marginLeft: '835px',marginRight: '840px'}}>
+        <Ul style={{marginRight: '25px'}}>
+            <div style={{width: '153px'}}>
             {heroes.map(hero => (
                 <div key = {hero.id}>
                     <Link style={{textDecoration: 'none'}} href={`/details/${hero.id}`}>
@@ -78,7 +77,9 @@ export default function Heroes() {
                         
                         
                 </div>
+
             ))}
+            </div>
         </Ul>
         </MainLayout>
     )

@@ -29,9 +29,7 @@ const Div = styled.div`
 const Ul = styled.ul`
     display: flex;
     padding-left: 8px;
-    justify-content: space-evenly;
-    margin-left: 500px;
-    margin-right: 500px;
+    justify-content: center;
 `;
 
 const H1 = styled.h1`
@@ -44,8 +42,6 @@ const Nav = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    margin-left: 820px;
-    margin-right: 820px;
 `;
 
 
@@ -72,12 +68,12 @@ export default function Dashboard() {
 
     return(
         <MainLayout>
-            <H1 style={{display: 'flex', justifyContent: 'center'}}>Top Heroes</H1>
-            <Ul style={{display: 'flex',paddingLeft: '8px',justifyContent: 'space-evenly',marginLeft: '500px',marginRight: '500px'}}>
+            <H1 style={{display: 'flex', justifyContent: 'center', color: 'red'}}>Top Heroes</H1>
+            <Ul style={{display: 'flex',paddingLeft: '8px',justifyContent: 'center'}}>
                 {heroes.map(hero => (
                     <div key = {hero.id}>
                         <Link style={{textDecoration: 'none'}} href={`/details/${hero.id}`}>
-                            <Div>
+                            <Div style={{marginLeft: '20px'}}>
     
                             <Button type="primary" style={{padding: '40px', display: 'flex', justifyContent: 'center', alignItems: 'center', fontSize: '25px',}} > {hero.name}</Button>
                             </Div>
