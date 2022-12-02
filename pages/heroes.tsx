@@ -84,12 +84,3 @@ export default function Heroes() {
         </MainLayout>
     )
 }
-
-// Heroes.getInitialProps = async () => {
-//     const response = await fetch( `${process.env.API_URL}/heroes`)
-//     const heroes = await response.json()
-
-//     return {
-//         heroes
-//     }
-// }
