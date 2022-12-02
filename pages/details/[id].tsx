@@ -6,7 +6,6 @@ import {Button, Space, Input} from 'antd'
 import { EnterOutlined, CheckCircleOutlined,UserOutlined} from '@ant-design/icons';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { json } from "react-router";
 
 export default function Details() {
 
@@ -52,9 +51,7 @@ export default function Details() {
         }    
        try {
         const response = await fetch(`${process.env.API_URL}${router.query.id}`,options)
-        const result = await response.json()   
-        setHeroObj(result)
-        // const json: any[] = await response.json()        
+        const result = await response.json()           
        } catch (err) {
         console.log('err', err);
        }
