@@ -16,7 +16,7 @@ export default function Dashboard() {
         useEffect(() => {
         async function load() {
         // const response = await fetch('https://vercel-pink-nu.vercel.app/heroes')
-        const response = await fetch(`${process.env.API_URL}/heroes`)
+        const response = await fetch(`${process.env.API_URL}`)
 
         const json: any[] = await response.json()
         setHeroes(json.slice(0,4))
