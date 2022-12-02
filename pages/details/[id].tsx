@@ -41,6 +41,8 @@ export default function Details() {
         toast.success('Successful!')
 
         const JSONdata = JSON.stringify(heroObj)
+        console.log('asd', heroObj);
+        
 
         const options = {
             method: 'PUT',
@@ -50,8 +52,14 @@ export default function Details() {
             },
             body: JSONdata,
         }    
+       try {
         const response = await fetch(`${process.env.API_URL}/heroes/${router.query.id}`,options)
         const result = await response.json()   
+       } catch (err) {
+        console.log('err', err);
+        
+       }
+       
 
     }
 
