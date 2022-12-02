@@ -42,7 +42,6 @@ const H4 = styled.h4`
     width: 400px;
     justify-content: space-between;
     height: 35px;
-    display: flex;
     margin-left:823px;
     
 `;
@@ -56,9 +55,6 @@ export default function Details() {
     const [id, setId] = useState(hero.id);
     const [name, setName] = useState(hero.name);
     const [heroObj, setHeroObj] = useState<IHero | null>(null);
-
-    console.log('process.env.API_URL', process.env.API_URL);
-
 
 
     async function load() {
@@ -125,11 +121,11 @@ export default function Details() {
             <React.Fragment>
             
             <h1 style={{display: 'flex', justifyContent: 'inherit',marginLeft: '823px',marginRight:'700px'}}>{name} details!</h1>
-            <H2>id: {id}</H2>
+            <H2 style={{fontSize: '28px',display: 'flex',justifyContent: 'inherit',marginLeft: '823px',marginRight: '700px'}}>id: {id}</H2>
 
-            <H1>
-                <Span>name: </Span>  
-                <Div>
+            <H1 style={{display: 'flex',flexDirection: 'row',justifyContent: 'inherit',marginLeft: '823px',marginRight: '700px'}}>
+                <Span style={{fontSize: '28px'}}>name: </Span>  
+                <Div style={{paddingLeft: '10px',display: 'flex'}}>
             <Input
                 size="large"
                 placeholder="Name"
@@ -139,7 +135,7 @@ export default function Details() {
             />
             </Div>
             </H1>
-            <H4>
+            <H4 style={{display: 'flex',width: '400px',justifyContent: 'space-between',height: '35px',marginLeft: '823px'}}>
             <Space direction="vertical">
             <Space wrap>
             <Button type="primary" icon={<EnterOutlined />} onClick = {linkClickHandler}>Back Dashboard</Button>

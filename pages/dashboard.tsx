@@ -72,8 +72,8 @@ export default function Dashboard() {
 
     return(
         <MainLayout>
-            <H1>Top Heroes</H1>
-            <Ul>
+            <H1 style={{display: 'flex', justifyContent: 'center'}}>Top Heroes</H1>
+            <Ul style={{display: 'flex',paddingLeft: '8px',justifyContent: 'space-evenly',marginLeft: '500px',marginRight: '500px'}}>
                 {heroes.map(hero => (
                     <div key = {hero.id}>
                         <Link style={{textDecoration: 'none'}} href={`/details/${hero.id}`}>
