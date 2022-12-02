@@ -4,6 +4,8 @@ import { Router, useRouter } from "next/router";
 import { IHero } from "../../models";
 import {Button, Space, Input} from 'antd'
 import { EnterOutlined, CheckCircleOutlined,UserOutlined} from '@ant-design/icons';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function Details() {
 
@@ -12,8 +14,6 @@ export default function Details() {
     const [id, setId] = useState(hero.id);
     const [name, setName] = useState(hero.name);
     const [heroObj, setHeroObj] = useState<IHero | null>(null);
-
-
     async function load() {
         if(router && router.query && router.query.id){
             // const response = await fetch(`${process.env.API_URL}/heroes/${router.query.id}`)
@@ -38,6 +38,8 @@ export default function Details() {
         
     }
     async function save() {
+        toast.success('Successful!')
+
         const JSONdata = JSON.stringify(heroObj)
 
         const options = {
@@ -48,13 +50,9 @@ export default function Details() {
             },
             body: JSONdata,
         }    
-        // const response = await fetch(`https://vercel-pink-nu.vercel.app/heroes/${router.query.id}`, options)
-        const response = await fetch(`${process.env.API_URL}/heroes/${router.query.id}`, options)
+        const response = await fetch(`${process.env.API_URL}/heroes/${router.query.id}`,options)
+        const result = await response.json()   
 
-
-        // const response = await fetch(`${baseUrl}/heroes/${router.query.id}`, options)
-        const result = await response.json()
-        
     }
 
     const handleUpdateHero = (e: any) => {
@@ -98,6 +96,7 @@ export default function Details() {
             <Button type="primary" icon={<EnterOutlined />} onClick = {linkClickHandler}>Back Dashboard</Button>
             <Button type="primary" icon={<EnterOutlined />} onClick={() => router.push('/heroes')}>Back Heroes</Button>
             <Button type="primary" icon={<CheckCircleOutlined />} onClick={save}>Save</Button>
+            <ToastContainer/>
             </Space>
             </Space>
             </h4>

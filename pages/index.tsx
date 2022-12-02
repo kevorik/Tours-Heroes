@@ -6,6 +6,7 @@ export default function Index() {
 
     return (
     <MainLayout>
+        
     </MainLayout>
     )
 }
