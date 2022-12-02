@@ -25,42 +25,36 @@ export default function Details() {
             setName(hero.name)
             setId(router.query.id)
         }
-
     }
     useEffect(() => {
         load()
     }, [Boolean(router.query.id)])
 
-    
-
     const linkClickHandler = () => {
         router.push('/dashboard')
-        
     }
+    
     async function save() {
         toast.success('Successful!')
 
         const JSONdata = JSON.stringify(heroObj)
         console.log('asd', heroObj);
         
-
         const options = {
             method: 'PUT',
             headers: {
             'Content-Type': 'application/json',
-            'Accept': 'application/json'
+            'Accept': 'application/json',
+            'Access-Control-Allow-Origin': '*',
             },
             body: JSONdata,
         }    
        try {
         const response = await fetch(`${process.env.API_URL}/heroes/${router.query.id}`,options)
-        const result = await response.json()   
+        const result = await response.json()           
        } catch (err) {
         console.log('err', err);
-        
        }
-       
-
     }
 
     const handleUpdateHero = (e: any) => {
@@ -75,11 +69,7 @@ export default function Details() {
             setName(updatedHero.name)
     }
 
-
-
-
     return(
-
         <MainLayout>
             <React.Fragment>
             <div style={{display: 'flex', justifyContent: 'center', flexDirection: 'column'}}>
