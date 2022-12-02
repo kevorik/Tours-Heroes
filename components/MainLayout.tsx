@@ -29,8 +29,8 @@ const Span = styled.span`
 export function MainLayout ({children} : any) {
     return(
         <>
-        <Title>Tour of Heroes</Title>
-            <Nav>
+        <Title style={{color: 'red',display: 'flex', justifyContent: 'center'}}>Tour of Heroes</Title>
+            <Nav style={{display: 'flex',flexDirection: 'row',justifyContent: 'space-between',marginLeft: '820px',marginRight: '820px'}}>
                 <Link style={{textDecoration: 'none'}} href={'/dashboard'}>
                     <Space wrap>
                     <Button style={{display:'flex'}}>Dashboard</Button>
