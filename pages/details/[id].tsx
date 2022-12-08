@@ -1,4 +1,4 @@
-import React, { useEffect,    useState } from "react";
+import React, { useContext, useEffect,    useState } from "react";
 import { MainLayout } from "../../components/MainLayout";
 import { Router, useRouter } from "next/router";
 import { IHero } from "../../models";
@@ -34,6 +34,7 @@ export default function Details() {
         router.push('/dashboard')
     }
     
+    
     async function save() {
         toast.success('Successful!')
 
@@ -49,6 +50,7 @@ export default function Details() {
             },
             body: JSONdata,
         }    
+        //обработчик ошибок
        try {
         const response = await fetch(`${process.env.API_URL}${router.query.id}`,options)
         const result = await response.json()           
