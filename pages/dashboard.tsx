@@ -1,30 +1,18 @@
 import Link from "next/link";
 import { MainLayout } from "../components/MainLayout";
 import { useEffect, useState } from "react";
-import { Button, Space } from 'antd';
-
-
-
-
-type THeroes = {
-    heroes: { "id": number, "name": string }[];
-};
-
+import { Button } from 'antd';
 
 export default function Dashboard() {
     const [heroes, setHeroes] = useState<any[]>([])
         useEffect(() => {
         async function load() {
-        // const response = await fetch('https://vercel-pink-nu.vercel.app/heroes')
         const response = await fetch(`${process.env.API_URL}`)
-
         const json: any[] = await response.json()
         setHeroes(json.slice(0,4))
         }
         load()
     }, [])
-
-
 
     return(
         <MainLayout>
@@ -34,7 +22,6 @@ export default function Dashboard() {
                     <div key = {hero.id}>
                         <Link style={{textDecoration: 'none'}} href={`/details/${hero.id}`}>
                             <div style={{marginLeft: '20px'}}>
-    
                             <Button type="primary" style={{padding: '40px', display: 'flex', justifyContent: 'center', alignItems: 'center', fontSize: '25px',}} > {hero.name}</Button>
                             </div>
                             </Link>

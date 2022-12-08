@@ -2,25 +2,16 @@ import Link from "next/link"
 import { useEffect, useState } from "react";
 import { MainLayout } from "../components/MainLayout";
 
-
-
-type THeroes = {
-    heroes: { "id": number, "name": string }[];
-};
-
 export default function Heroes() {
     const [heroes, setHeroes] = useState<any[]>([])
         useEffect(() => {
         async function load() {
-        // const response = await fetch('https://vercel-pink-nu.vercel.app/heroes')
         const response = await fetch(`${process.env.API_URL}`)
-
         const json: any[] = await response.json()
         setHeroes(json)
         }
         load()
     }, [])
-
 
     return (
         <MainLayout>
@@ -40,10 +31,7 @@ export default function Heroes() {
                         color: 'black',width: '180px'}}> {hero.name}</div>
                         </div>
                         </Link>
-                        
-                        
                 </div>
-
             ))}
             </div>
         </ul>

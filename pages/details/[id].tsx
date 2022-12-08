@@ -1,6 +1,6 @@
-import React, { useContext, useEffect,    useState } from "react";
+import React, { useEffect, useState } from "react";
 import { MainLayout } from "../../components/MainLayout";
-import { Router, useRouter } from "next/router";
+import { useRouter } from "next/router";
 import { IHero } from "../../models";
 import {Button, Space, Input} from 'antd'
 import { EnterOutlined, CheckCircleOutlined,UserOutlined} from '@ant-design/icons';
@@ -15,17 +15,15 @@ export default function Details() {
     const [name, setName] = useState(hero.name);
     const [heroObj, setHeroObj] = useState<IHero | null>(null);
     async function load() {
+
         if(router && router.query && router.query.id){
-            // const response = await fetch(`${process.env.API_URL}/heroes/${router.query.id}`)
             const response = await fetch(`${process.env.API_URL}${router.query.id}`)
-
-            // const response = await fetch(`${baseUrl}/heroes/${router.query.id}`)
-
             const hero: any = await response.json()
             setName(hero.name)
             setId(router.query.id)
         }
     }
+
     useEffect(() => {
         load()
     }, [Boolean(router.query.id)])
@@ -33,15 +31,13 @@ export default function Details() {
     const linkClickHandler = () => {
         router.push('/dashboard')
     }
-    
-    
-    async function save() {
-        toast.success('Successful!')
 
+    async function save() {
+
+        toast.success('Successful!')
         const JSONdata = JSON.stringify(heroObj)
-        console.log('asd', heroObj);
-        
         const options = {
+    
             method: 'PUT',
             headers: {
             'Content-Type': 'application/json',
@@ -60,24 +56,21 @@ export default function Details() {
     }
 
     const handleUpdateHero = (e: any) => {
+        
         const newName = e.target.value;
-
             const updatedHero = {
                 ...heroObj,
                 name: newName
             };
             setHeroObj(updatedHero)
-
             setName(updatedHero.name)
     }
-
     return(
         <MainLayout>
             <React.Fragment>
             <div style={{display: 'flex', justifyContent: 'center', flexDirection: 'column'}}>
             <h1 style={{display: 'flex', justifyContent: 'center'}}>{name} details!</h1>
             <h2 style={{fontSize: '28px',display: 'flex',justifyContent: 'inherit',marginRight: '130px'}}>id: {id}</h2>
-
             <h1 style={{display: 'flex',flexDirection: 'row',justifyContent: 'center',marginLeft: '130px'}}>
                 <span style={{fontSize: '28px'}}>name: </span>  
                 <div style={{paddingLeft: '10px',display: 'flex'}}>
