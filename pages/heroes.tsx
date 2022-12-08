@@ -15,7 +15,7 @@ export default function Heroes() {
 
     return (
         <MainLayout>
-        <h1 style={{display: 'flex',justifyContent: 'center', color: 'aqua'}}>My Heroes</h1>
+        <h1 style={{display: 'flex',justifyContent: 'center', color: 'red'}}>My Heroes</h1>
         <ul style={{marginRight: '25px', display: 'flex', justifyContent: 'center'}}>
             <div style={{width: '220px'}}>
             {heroes.map(hero => (
